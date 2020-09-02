@@ -1,0 +1,17 @@
+{
+  "error": {
+    "uso": "Uso incorrecto del comando!",
+    "args": {
+      "user_mention": "Debes mencionar a un usuario!",
+      "": ""
+    },
+    "noFound": {
+      "cmd": "Comando no encontrado!",
+      "user_not_founded": "Usuario no encontrado!"
+    },
+    "noPerms": {
+      "bot_no_perms": "No tengo permisos!",
+      "user_no_perms": "No tienes Permisos!"
+    }
+  }
+}

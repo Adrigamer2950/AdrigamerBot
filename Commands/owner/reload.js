@@ -16,9 +16,11 @@ module.exports = class reload {
         .setImage('https://discordemoji.com/assets/emoji/6181_check.gif')
         .setFooter('Gracias por crearme Adrigamer2950 :3')
       message.channel.send({ embed }).then(() => {
-        client.destroy().then(() => {
-          process.exit();
-        })
+        client.destroy();
+        console.clear();
+        process.exit();
+        process.abort;
+        process.off;
       })
     
     }else{

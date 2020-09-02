@@ -1,4 +1,5 @@
 const Discord = require("discord.js"); 
+const lang = require('../util.js').getLanguage();
 
 module.exports = class nick {
     constructor() {
@@ -25,7 +26,7 @@ module.exports = class nick {
     let contador = 3; //Esta variable nos ayudara a controlar los permisos del usuario
 
     // Revisamos que no hay ningun fallo
-    if (!mencion) return message.reply("No has mencionado a un usuario");
+    if (!mencion) return message.reply(lang.error.args.user_mention);
     if (message.member.hasPermission("MANAGE_NICKNAMES") && mencion.id !== message.member.id) contador = 2;
   
     let antibugs = mencion.id !== message.member.id;
@@ -58,7 +59,7 @@ module.exports = class nick {
         }
 
         message.member.setNickname(texto)
-        return message.reply(`Listo nuevo apodo: **${texto}**`)
+        return message.reply(`Listo, tu nuevo apodo es: **${texto}**`)
     }
         }catch(e) {
             throw e;

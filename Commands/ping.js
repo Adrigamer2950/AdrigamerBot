@@ -17,7 +17,7 @@ module.exports = class ping {
               .setTitle('Pong!')
               .setDescription('Ping mensajes: '+Math.floor(msg.createdTimestamp - Date.now())+'ms\nPing Bot: '+ping+'ms')
               msg.edit(embed)
-            }, 3000)
+            }, 1500)
           });
         }catch(e) {
             throw e;

@@ -10,7 +10,7 @@ module.exports = class botinfo {
     async run(client, message, args) {
         try{
     const embed = new Discord.RichEmbed()
-.setAuthor('Información de Adrigamer Bot')
+.setAuthor('Información de AdriBot')
 .setColor("RANDOM")
 .setThumbnail(client.user.avatarURL)
 .addField("Owner:", "<@353104236491309056>", true)
@@ -19,7 +19,7 @@ module.exports = class botinfo {
 .addField("Versión:", " 1.0.3", true)
 .addField("Node:", "v8.15.1")
 .addField("Memoria:", (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2) +"%", true)
-.addField("Nombre:", "Adrigamer Bot")
+.addField("Nombre:", "AdriBot")
 .addField("Servidores:", client.guilds.size.toLocaleString(), true)
 .addField("Usuarios:", client.users.size.toLocaleString(), true)
 .addField("Canales:", client.channels.size.toLocaleString(), true);

@@ -21,11 +21,11 @@ module.exports = class warns {
         if(!persona) return message.channel.send('Debes mencionar a un usuario!')
           
           if(warns_db.tiene(`${message.guild.id}.${user.id}`)){
-            var warns = warns_db.obtener(`${message.guild.id}.${user.id}.warns`);
+            const warns = warns_db.obtener(`${message.guild.id}.${user.id}.warns`);
             const embed = new Discord.RichEmbed()
           .setTitle('Warns de '+user.username)
           .setThumbnail(user.avatarURL)
-          .setDescription(user.username+' tiene actualmente: '+`${warns}`);
+          .setDescription(user.username+' tiene actualmente: '+warns);
           message.channel.send(embed)
           } 
         }catch(e) {

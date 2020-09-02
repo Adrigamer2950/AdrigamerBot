@@ -1,28 +1,4 @@
-//ESTE CODIGO NO AFECTARA SU BOT, SCRIPT DE ARRANQUE
-
-const http = require('http');
-const express = require('express');
-const app = express();
-
-app.use(express.static('public'));
-
-app.get("/", function (request, response) {
-  response.sendFile(__dirname + '/views/index.html');
-});
-
-app.get("/", (request, response) => {
-  response.sendStatus(200);
-});
-
-app.listen(process.env.PORT);
-
-setInterval(() => {
-  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`); 
-}, 100000);
-
-
-//DESDE AQUI EMPIEZA A ESCRIBIR EL CODIGO PARA SU BOT
-
+require('http').createServer((req, res) => res.end(`¡El bot esta online como: AdriBot`)).listen(3000)
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require('./util.js').getConfig()[1];
@@ -31,8 +7,9 @@ const util = require('./util.js');
 const request = require('request');
 const search = require('youtube-search');
 const db = require('megadb');
-
+const fs = require('fs');
 const ms = require("ms");
+
 const { nivelesFunc } = require('./niveles.js');
 
 let RainbowRoles_db = new db.crearDB("rainbowRoles");
@@ -49,7 +26,7 @@ const guildInvites = new Map();
 const queue = new Map();
 
 function presence(){
-  var status = ["Prefix a!", `en ${client.guilds.size} servidores! y con ${client.users.size} usuarios!`, 'v1.0.4'];
+  var status = ["Usa a!help para ver la ayuda del bot", `en ${client.guilds.size} servidores! y con ${client.users.size} usuarios!`, 'v1.0.4'];
   var randomStatus = Math.floor(Math.random()*(status.length));
   client.user.setPresence({
        status: "online",
@@ -60,59 +37,25 @@ function presence(){
    });
 }
 
-function presenceDirecto(){
-  client.user.setPresence({
-       status: "online",
-       activity: {
-           name: "En Directo",
-           url: "https://www.twitch.tv/adrigamer2950",
-           type: "STREAMING"
-       }
-   });
-}
+for(let file of fs.readdirSync('./events')){
+  if(file.endsWith('.js')){
+    let fileName = file.substring(0, file.length - 3);
 
-client.on('ready', () => {
-  console.log(`Soy ${client.user.tag}`)
-  /*client.invites = {};
-  for (const [id, guild] of client.guilds) {
-    guild.fetchInvites()
-      .then(invites => client.invites[id] = invites)
-      .catch(console.error);
-  }*/
-  presence();
-  setInterval(presence, 5000);
-  /*setInterval(function(){
-      client.destroy().then(() => {
-          process.exit();
-        })
-  }, 800000);*/
-  //rainbowRole();
-  //setInterval(rainbowRole, 7000);
-  
-})
+    let fileContents = require(`./events/${file}`);
+
+    client.on(fileName, fileContents.bind(null, client));
+
+    delete require.cache[require.resolve(`./events/${file}`)]
+  }
+}
 
 client.on("message", async (message) => {
   if(message.author.type === 'bot') return;
+  if(message.guild.id === '264445053596991498') return;
     const CH = new CommandHandler({
     folder: __dirname + "/Commands/",
     prefix: prefix_db.tiene(`${message.guild.id}`) ? await prefix_db.obtener(`${message.guild.id}`) : "a!"
     });
-  
-  /*function rainbowRole(){
-  let server = message.guild.id;
-  let obtener = RainbowRoles_db.obtener(`${server.id}.role`)
-  let obtenerTrue = RainbowRoles_db.obtener(`${server.id}.true`)
-  let role = message.guild.roles.find(r => r.id == obtener)
-  if(!role){
-    if(message.author.type === 'bot') return;
-  }else{
-        var colors = ['#FF0202', '#FFA502', '#FBFF02', '#2EFF02', '#02F2FF', '#0220FF', '#4c2882'];
-        var colores = Math.floor(Math.random() * colors.length);
-        role.setColor('RANDOM');
-  }
-}*/
-  //rainbowRole();
-  //setInterval(rainbowRole, 7000);
   
     let prefix = prefix_db.tiene(`${message.guild.id}`) ? await prefix_db.obtener(`${message.guild.id}`) : "a!";
     

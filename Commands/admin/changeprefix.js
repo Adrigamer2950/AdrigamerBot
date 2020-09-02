@@ -11,10 +11,10 @@ module.exports = class help {
 
     async run(client, message, args) {
         try{
-          if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("No tienes permisos!");
-          if(!args[0]) return message.channel.send("Necesitas colocar el nuevo prefix!");
+          if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send('No tienes permisos! Debes tener el permiso `"Gestionar Servidor` para poder cambiar mi prefix!');
+          if(!args[0]) return message.channel.send("Necesitas colocar mi nuevo prefix!");
           prefix_db.establecer(`${message.guild.id}`, args[1]);
-          return message.channel.send("El prefix a sido cambiado a "+args[1]);
+          return message.channel.send("Mi prefix a sido cambiado a "+args[1]);
         }catch(e) {
             throw e;
         }

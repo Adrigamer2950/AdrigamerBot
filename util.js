@@ -6,5 +6,9 @@ module.exports = {
   getSend: function(msg, text){
   //console.log(text)
   msg.channel.send(text)
+  },
+  getLanguage: function(){
+    let lang = require('./languages/ES-es.json');
+    return lang;
   }
 }

@@ -18,7 +18,10 @@ module.exports = class suggest {
           .setDescription(message.author.tag + ' ha hecho una sugerencia!')
           .addField('Sugerencia enviada: ', args.slice(1).join(" "))
           .setThumbnail(message.author.avatarURL);
-          canal.send(embed);
+          canal.send(embed).then(msg => {
+            msg.react('✅');
+            msg.react('❎');
+          });
           message.reply('Sugerencia enviada correctamente!');
           }
         }catch(e) {

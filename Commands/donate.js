@@ -13,7 +13,7 @@ module.exports = class donate {
           .setTitle("¿Quieres apoyarme a seguir actualizando a mi bot?")
           .setColor('RANDOM')
           .setDescription('Pues puedes hacerlo!')
-          .addField('Puedes hacer click en el siguiente link para hacerme una donación y apoyarme!', '🔗[**AQUI**](https://www.paypal.me/adrigamer2950)🔗');
+          .addField('Puedes hacer click en el siguiente link para hacerme una donación y apoyarme!', '🔗[**AQUI**](https://www.patreon.com/Adrigamer2950?fan_landing=true)🔗');
           message.channel.send(embed)
         }catch(e) {
             throw e;

@@ -1,4 +1,5 @@
 const Discord = require("discord.js"); 
+const lang = require('../../util.js').getLanguage();
 
 module.exports = class ban {
     constructor() {
@@ -15,10 +16,10 @@ module.exports = class ban {
         if (!permsBot) return message.channel.send("No tengo permisos!")
           
         let perms = message.member.hasPermission("BAN_MEMBERS") //Verificamos permisos del user
-        if (!perms) return message.channel.send("No tienes Permisos!")
+        if (!perms) return message.channel.send(lang.error.noPerms.user_no_perms)
 
         let persona = message.mentions.members.first() //Si no menciono a naadie
-        if(!persona) return message.channel.send('Debes mencionar a un usuario!')
+        if(!persona) return message.channel.send(lang.error.args.user_mention)
 		
         if(persona.highestRole.comparePositionTo(message.member.highestRole) > 0){ //Si tiene el mismo rango o mayor (en Jerarquia)
             return message.channel.send("No puedes banear a ese usuario porque su rango es mayor que el tuyo!")

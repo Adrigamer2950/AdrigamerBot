@@ -40,8 +40,8 @@ module.exports = class open {
       return  message.guild.createChannel("tickets", {
         type: "category"
       }); //Que si la categoria no existe devuelva False y cree la categoria
-    var mensaje = ":notebook: | Nuevo ticket | :notebook:\nAqui recibiras ayuda de un staff lo más pronto posible.\nTicket creado por: \n"+message.author+"\nRazón: \n"+args.slice(1).join(" ")+"\n"+ticketsupport+" Un usuario a creado un ticket!";
-    return message.guild
+        var mensaje = ":notebook: | Nuevo ticket | :notebook:\nAqui recibiras ayuda de un staff lo más pronto posible.\nTicket creado por: \n"+message.author+"\nRazón: \n"+args.slice(1).join(" ")+"\n"+ticketsupport+" Un usuario a creado un ticket!";
+        return message.guild
       .createChannel(nombrech, {
         type: "text",
         permissionOverwrites: [
@@ -52,7 +52,7 @@ module.exports = class open {
             deny: ["VIEW_CHANNEL", "SEND_MESSAGES"] //Ver canal mandar mensajes
           },
           {
-            id: ticketsupport.id, //Que al rol Ticket Support le agregue los permisos
+            id: ticketsupport.id, //Que al rol Bot Support le agregue los permisos
             allow: ["VIEW_CHANNEL", , "SEND_MESSAGES"] //Ver canal mandar mensajes
           },
           {
