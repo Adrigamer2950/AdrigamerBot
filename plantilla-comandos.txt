@@ -1,17 +1,25 @@
-const Discord = require("discord.js"); 
+const commands = require('../../commands.js')
+const discord = require('discord.js');
+const lang = require('../../util.js').getLanguage();
 
-module.exports = class reload {
-    constructor() {
-        this.name = "reload",
-        this.alias = [],
-        this.usage = "a!reload"
-    }
-
-    async run(client, message, args) {
-        try{
-        
-        }catch(e) {
-            throw e;
-        }
-    }
+module.exports = class AvatarCommand extends commands.Command {
+  constructor(){
+    super({
+      name: 'avatar',
+      aliases: [],
+      args: [
+        new commands.Argument({
+          optional: true,
+          missingError: lang.error.noArgs.mention,
+          invalidError: lang.error.incoArgs.text
+        })
+      ],
+      category: 'test',
+      priority: 9,
+      permLvl: 0
+    });
+  }
+  execute(msg, args){
+    
+  }
 }

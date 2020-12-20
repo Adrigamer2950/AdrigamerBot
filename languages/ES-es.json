@@ -1,17 +1,22 @@
 {
   "error": {
-    "uso": "Uso incorrecto del comando!",
-    "args": {
-      "user_mention": "Debes mencionar a un usuario!",
-      "": ""
+    "uso": "Uso incorrecto del comando",
+    "noArgs": {
+      "user_mention": "Tienes que mencionar a un usuario.",
+      "arg": "Tienes que poner un mensaje.",
+      "channel": "Tienes que mencionar un canal.",
+      "rol": "Tienes que mencionar a un rol."
+    },
+    "incoArgs": {
+      "text": "Argumento incorrecto.",
+      "cmd" :"Comando incorrecto."
     },
     "noFound": {
-      "cmd": "Comando no encontrado!",
-      "user_not_founded": "Usuario no encontrado!"
+      "cmd": "Comando desconocido",
+      "channel": "Canal no encontrado.",
+      "mention": "Usuario no encontrado."
     },
-    "noPerms": {
-      "bot_no_perms": "No tengo permisos!",
-      "user_no_perms": "No tienes Permisos!"
-    }
+    "noPerms": "No tienes permisos para ejecutar ese comando."
   }
+ 
 }

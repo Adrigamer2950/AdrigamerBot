@@ -14,7 +14,7 @@ router
   await res.redirect("/");
 })
 .get('/bot', async function(req, res) {
-  res.redirect('https://discord.com/api/oauth2/authorize?client_id=705793288719827004&permissions=8&redirect_uri=https%3A%2F%2Fadrigamer-bot.glitch.me%2Flogin&response_type=code&scope=bot%20identify%20guilds')
+  res.redirect('https://discord.com/api/oauth2/authorize?client_id=705793288719827004&permissions=8&redirect_uri=https%3A%2F%2Fadribot.2n1rijfdnqw.repl.co%2F&response_type=code&scope=bot%20identify')
 })
 
 module.exports = router;

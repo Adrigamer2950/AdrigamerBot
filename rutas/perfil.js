@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const auth = require("../auth.js");
 const sqlite3 = require('sqlite3');
-const base = new sqlite3.Database('./test.sqlite3')
+const base = new sqlite3.Database('./web.sqlite3')
 
 router.get('/', auth, async(req, res) => {
   
