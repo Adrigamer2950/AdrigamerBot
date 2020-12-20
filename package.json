@@ -19,8 +19,6 @@
     "expres": "^0.0.5",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
-    "ffmpeg": "^0.0.4",
-    "ffmpeg-static": "^4.2.1",
     "fs": "^0.0.2",
     "http": "0.0.1-security",
     "megadb": "^3.4.0",
